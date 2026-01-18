@@ -1,7 +1,7 @@
 'use client';
 
-import { FaCode, FaLaptopCode, FaTools, FaServer, FaBrain, FaLaptop, FaHtml5, FaCss3Alt, FaJs, FaReact, FaJava, FaPython, FaNode, FaDatabase, FaGitAlt, FaGithub, FaMicrosoft, FaFileExcel, FaFilePowerpoint } from 'react-icons/fa';
-import { SiTailwindcss, SiBootstrap, SiDjango, SiMysql, SiSqlite, SiCplusplus, SiC, SiVisualstudiocode, SiCanva, SiCisco, SiIntellijidea, SiNotion, SiArduino } from 'react-icons/si';
+import { FaCode, FaLaptopCode, FaTools, FaServer, FaBrain, FaLaptop, FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaNode, FaDatabase, FaGitAlt, FaGithub, FaCloud, FaRobot, FaCogs, FaPlug, FaMobile, FaGlobe } from 'react-icons/fa';
+import { SiTailwindcss, SiTypescript, SiNextdotjs, SiExpress, SiMongodb, SiPostgresql, SiMysql, SiRedis, SiDocker, SiKubernetes, SiAwslambda, SiVisualstudiocode, SiNotion, SiOpenai, SiZapier, SiZoho, SiHubspot, SiStripe, SiApollographql, SiGraphql } from 'react-icons/si';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -9,82 +9,92 @@ import { useState } from 'react';
 
 const skillCategories = [
   {
-    title: 'Frontend Development',
-    category: 'frontend',
-    icon: FaLaptopCode,
-    description: 'Building responsive and interactive user interfaces',
-    skills: [
-      { name: 'HTML', level: 95, color: '#E34F26', icon: FaHtml5 },
-      { name: 'CSS', level: 90, color: '#1572B6', icon: FaCss3Alt },
-      { name: 'Tailwind CSS', level: 88, color: '#38B2AC', icon: SiTailwindcss },
-      { name: 'Bootstrap', level: 85, color: '#7952B3', icon: SiBootstrap },
-      { name: 'JavaScript', level: 90, color: '#F7DF1E', icon: FaJs },
-      { name: 'React.js', level: 85, color: '#61DAFB', icon: FaReact },
-      { name: 'JavaFX', level: 80, color: '#E76F00', icon: FaJava },
-    ]
-  },
-  {
-    title: 'Backend Development',
-    category: 'backend',
-    icon: FaServer,
-    description: 'Building server-side applications and APIs',
-    skills: [
-      { name: 'Node.js', level: 80, color: '#339933', icon: FaNode },
-      { name: 'Django', level: 75, color: '#092E20', icon: SiDjango },
-      { name: 'Python', level: 85, color: '#3776AB', icon: FaPython },
-      { name: 'MySQL', level: 82, color: '#4479A1', icon: SiMysql },
-      { name: 'SQLite', level: 80, color: '#003B53', icon: SiSqlite },
-    ]
-  },
-  {
-    title: 'Programming Languages',
-    category: 'languages',
-    icon: FaCode,
-    description: 'Languages used for programming',
-    skills: [
-      { name: 'C', level: 85, color: '#555555', icon: SiC },
-      { name: 'C++', level: 88, color: '#F34B7D', icon: SiCplusplus },
-      { name: 'Java', level: 82, color: '#007396', icon: FaJava },
-      { name: 'Python', level: 85, color: '#3776AB', icon: FaPython },
-      { name: 'JavaScript', level: 90, color: '#F7DF1E', icon: FaJs },
-    ]
-  },
-  {
-    title: 'Computer Science',
-    category: 'cs',
+    title: 'AI & Machine Learning',
+    category: 'ai-ml',
     icon: FaBrain,
-    description: 'Fundamentals of computer science',
+    description: 'AI platforms, agents, and machine learning technologies',
     skills: [
-      { name: 'Data Structures', level: 90, color: '#214252', icon: FaDatabase },
-      { name: 'Algorithms', level: 85, color: '#214252', icon: FaCode },
-      { name: 'Cisco Networking', level: 75, color: '#214252', icon: SiCisco },
+      { name: 'OpenAI', level: 95, color: '#412991', icon: SiOpenai },
+      { name: 'AI Agents', level: 92, color: '#64FFDA', icon: FaRobot },
+      { name: 'Chatbots', level: 90, color: '#61DAFB', icon: FaBrain },
+      { name: 'ML Models', level: 88, color: '#F7DF1E', icon: FaBrain },
     ]
   },
   {
-    title: 'Development Tools',
-    category: 'dev-tools',
-    icon: FaTools,
-    description: 'Tools used for development',
+    title: 'Automation & Integration',
+    category: 'automation',
+    icon: FaCogs,
+    description: 'Workflow automation and integration platforms',
     skills: [
-      { name: 'VS Code', level: 90, color: '#007ACC', icon: SiVisualstudiocode },
-      { name: 'IntelliJ IDEA', level: 85, color: '#FE315D', icon: SiIntellijidea },
-      { name: 'Git', level: 88, color: '#F05032', icon: FaGitAlt },
-      { name: 'GitHub', level: 85, color: '#181717', icon: FaGithub },
-      { name: 'MySQL Workbench', level: 82, color: '#4479A1', icon: SiMysql },
-      { name: 'Arduino', level: 75, color: '#00979D', icon: SiArduino },
+      { name: 'Zapier', level: 92, color: '#FF4A00', icon: SiZapier },
+      { name: 'n8n', level: 88, color: '#FF6D5A', icon: FaPlug },
+      { name: 'Make.com', level: 90, color: '#00D9FF', icon: FaCogs },
+      { name: 'API Pipelines', level: 95, color: '#64FFDA', icon: FaPlug },
     ]
   },
   {
-    title: 'Professional Tools',
-    category: 'tools',
-    icon: FaLaptop,
-    description: 'Tools used in professional environments',
+    title: 'CRM Systems',
+    category: 'crm',
+    icon: FaDatabase,
+    description: 'Customer relationship management and automation',
     skills: [
-      { name: 'MS Office', level: 92, color: '#F15A24', icon: FaMicrosoft },
-      { name: 'PowerPoint', level: 90, color: '#C43A2B', icon: FaFilePowerpoint },
-      { name: 'Excel', level: 88, color: '#217346', icon: FaFileExcel },
-      { name: 'Canva', level: 85, color: '#0055FF', icon: SiCanva },
-      { name: 'Notion', level: 88, color: '#000000', icon: SiNotion },
+      { name: 'HubSpot', level: 90, color: '#FF7A59', icon: SiHubspot },
+      { name: 'Zoho', level: 88, color: '#C8202B', icon: SiZoho },
+      { name: 'CRM Automation', level: 92, color: '#64FFDA', icon: FaCogs },
+      { name: 'Sales Pipeline', level: 85, color: '#3776AB', icon: FaDatabase },
+    ]
+  },
+  {
+    title: 'Full Stack Development',
+    category: 'fullstack',
+    icon: FaLaptopCode,
+    description: 'Modern web and mobile application development',
+    skills: [
+      { name: 'React.js', level: 93, color: '#61DAFB', icon: FaReact },
+      { name: 'Next.js', level: 90, color: '#000000', icon: SiNextdotjs },
+      { name: 'TypeScript', level: 92, color: '#3178C6', icon: SiTypescript },
+      { name: 'Node.js', level: 90, color: '#339933', icon: FaNode },
+      { name: 'Express.js', level: 88, color: '#000000', icon: SiExpress },
+      { name: 'Python', level: 92, color: '#3776AB', icon: FaPython },
+    ]
+  },
+  {
+    title: 'Databases & APIs',
+    category: 'database',
+    icon: FaDatabase,
+    description: 'Database management and API development',
+    skills: [
+      { name: 'MongoDB', level: 90, color: '#47A248', icon: SiMongodb },
+      { name: 'PostgreSQL', level: 88, color: '#336791', icon: SiPostgresql },
+      { name: 'MySQL', level: 85, color: '#4479A1', icon: SiMysql },
+      { name: 'Redis', level: 82, color: '#DC382D', icon: SiRedis },
+      { name: 'GraphQL', level: 88, color: '#E10098', icon: SiGraphql },
+      { name: 'REST APIs', level: 95, color: '#64FFDA', icon: FaPlug },
+    ]
+  },
+  {
+    title: 'Cloud & DevOps',
+    category: 'devops',
+    icon: FaCloud,
+    description: 'Cloud infrastructure and deployment',
+    skills: [
+      { name: 'Docker', level: 88, color: '#2496ED', icon: SiDocker },
+      { name: 'Kubernetes', level: 85, color: '#326CE5', icon: SiKubernetes },
+      { name: 'AWS Lambda', level: 87, color: '#FF9900', icon: SiAwslambda },
+      { name: 'CI/CD', level: 90, color: '#64FFDA', icon: FaTools },
+      { name: 'Git/GitHub', level: 95, color: '#181717', icon: FaGithub },
+    ]
+  },
+  {
+    title: 'SaaS & Integration',
+    category: 'saas',
+    icon: FaGlobe,
+    description: 'Software as a Service and payment integration',
+    skills: [
+      { name: 'SaaS Architecture', level: 92, color: '#64FFDA', icon: FaCloud },
+      { name: 'Stripe', level: 88, color: '#635BFF', icon: SiStripe },
+      { name: 'Payment Systems', level: 85, color: '#3776AB', icon: FaPlug },
+      { name: 'Webhooks', level: 90, color: '#F7DF1E', icon: FaPlug },
     ]
   }
 ];
@@ -133,7 +143,7 @@ const Skills = () => {
     }),
   };
 
-  const categories = ['all', 'frontend', 'backend', 'languages', 'cs', 'dev-tools', 'tools'];
+  const categories = ['all', 'ai-ml', 'automation', 'crm', 'fullstack', 'database', 'devops', 'saas'];
 
   const filteredCategories = selectedCategory === 'all' 
     ? skillCategories 
@@ -278,16 +288,20 @@ const Skills = () => {
 // Helper functions
 const getCategoryIcon = (category: string) => {
   switch (category) {
-    case 'frontend':
+    case 'ai-ml':
+      return <FaBrain className="text-lg" />;
+    case 'automation':
+      return <FaCogs className="text-lg" />;
+    case 'crm':
+      return <FaDatabase className="text-lg" />;
+    case 'fullstack':
       return <FaLaptopCode className="text-lg" />;
-    case 'backend':
-      return <FaServer className="text-lg" />;
-    case 'languages':
-      return <FaCode className="text-lg" />;
-    case 'dev-tools':
-      return <FaTools className="text-lg" />;
-    case 'tools':
-      return <FaLaptop className="text-lg" />;
+    case 'database':
+      return <FaDatabase className="text-lg" />;
+    case 'devops':
+      return <FaCloud className="text-lg" />;
+    case 'saas':
+      return <FaGlobe className="text-lg" />;
     default:
       return null;
   }

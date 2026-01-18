@@ -1,10 +1,8 @@
 "use client";
 
 import {
-  FaGithub,
   FaExternalLinkAlt,
   FaStar,
-  FaCodeBranch,
   FaTimes,
   FaExpand,
   FaLaptopCode,
@@ -13,18 +11,12 @@ import {
   FaMobile,
   FaCube,
   FaCode,
+  FaCogs,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-
-interface RepoStats {
-  stars: number;
-  forks: number;
-  watchers: number;
-  views: number;
-}
 
 interface Project {
   title: string;
@@ -34,10 +26,55 @@ interface Project {
   demo: string | null;
   repoName: string;
   image: string;
-  category: "frontend" | "backend" | "fullstack" | "mobile" | "other";
+  category: "frontend" | "backend" | "fullstack" | "mobile" | "automation" | "other";
+  rate: number;
 }
 
 const projects: Project[] = [
+  {
+    title: "AI Chat Automation Workflow",
+    description: "Intelligent chat automation using n8n with AI agent powered by Google Gemini.",
+    technologies: ["n8n", "Google Gemini", "AI Agents", "API Integration"],
+    github: "#",
+    demo: null,
+    repoName: "ai-chat-automation",
+    image: "/images/projects/automation1.png",
+    category: "automation",
+    rate: 4.7,
+  },
+  {
+    title: "Subscription Management Automation",
+    description: "Automated subscription expiration management system with n8n workflows.",
+    technologies: ["n8n", "Google Sheets API", "Email Automation", "CRM Integration"],
+    github: "#",
+    demo: null,
+    repoName: "subscription-automation",
+    image: "/images/projects/automation2.png",
+    category: "automation",
+    rate: 4.5,
+  },
+  {
+    title: "Real-Time Multi-Channel Alert System",
+    description: "Automated alert system sending notifications across Email, Mobile, Slack, and Podio.",
+    technologies: ["n8n", "Slack API", "Podio API", "Email Automation"],
+    github: "#",
+    demo: null,
+    repoName: "real-time-alerts",
+    image: "/images/projects/AUTOMATED REAL-TIME ALERTS ACROSS EMAIL, MOBILE, SLACK, AND PODIO.jpg",
+    category: "automation",
+    rate: 4.8,
+  },
+  {
+    title: "GoHighLevel CRM Automation",
+    description: "Advanced CRM automation system integrated with GoHighLevel platform.",
+    technologies: ["GoHighLevel", "CRM Automation", "API Integration", "Lead Management"],
+    github: "#",
+    demo: null,
+    repoName: "gohighlevel-automation",
+    image: "/images/projects/GohighLevel.png",
+    category: "automation",
+    rate: 4.6,
+  },
   {
     title: "Daffodil Bank",
     description: "create a bank for DIU",
@@ -47,6 +84,7 @@ const projects: Project[] = [
     repoName: "Daffodil Bank",
     image: "/images/projects/Bank.png",
     category: "fullstack",
+    rate: 4.2,
   },
   {
     title: "Roomie",
@@ -63,6 +101,7 @@ const projects: Project[] = [
     repoName: "Roomie",
     image: "/images/projects/Roomie.png",
     category: "fullstack",
+    rate: 4.6,
   },
   {
     title: "Obys Agency Clone",
@@ -73,6 +112,7 @@ const projects: Project[] = [
     repoName: "Obys",
     image: "/images/projects/Obys.png",
     category: "frontend",
+    rate: 4.4,
   },
   {
     title: "AppHub",
@@ -88,17 +128,8 @@ const projects: Project[] = [
     demo: "https://app-store-79dbb.web.app/",
     repoName: "AppHub",
     image: "/images/projects/AppHub.png",
-    category: "backend",
-  },
-  {
-    title: "Portfolio",
-    description: "A web application for Personal Portfolio",
-    technologies: ["TypeScript", "CSS", "JavaScript"],
-    github: "https://github.com/rakibul263/MyPortfolio",
-    demo: "https://rakibulhasanshuvo.netlify.app/",
-    repoName: "Portfolio",
-    image: "/images/projects/portfolio.png",
-    category: "fullstack",
+    category: "frontend",
+    rate: 3.9,
   },
   {
     title: "DevBoard",
@@ -109,6 +140,7 @@ const projects: Project[] = [
     repoName: "dev-board",
     image: "/images/projects/devBoard.png",
     category: "frontend",
+    rate: 3.8,
   },
   {
     title: "PH Tube",
@@ -118,7 +150,8 @@ const projects: Project[] = [
     demo: "https://rakibul263.github.io/PH-TUBE/",
     repoName: "PH-TUBE",
     image: "/images/projects/ph-tube.png",
-    category: "backend",
+    category: "frontend",
+    rate: 4.1,
   },
   {
     title: "English Janala",
@@ -128,7 +161,8 @@ const projects: Project[] = [
     demo: "https://rakibul263.github.io/English-Janala/",
     repoName: "English-Janala",
     image: "/images/projects/english-janala.png",
-    category: "backend",
+    category: "frontend",
+    rate: 3.7,
   },
   {
     title: "Payoo Mobile Bank",
@@ -139,6 +173,7 @@ const projects: Project[] = [
     repoName: "Payoo-Mobile-Bank",
     image: "/images/projects/payoo.png",
     category: "frontend",
+    rate: 4.0,
   },
   {
     title: "Meal Explorer",
@@ -149,6 +184,7 @@ const projects: Project[] = [
     repoName: "Meal-Explorer",
     image: "/images/projects/meal-explorer.png",
     category: "frontend",
+    rate: 3.6,
   },
   {
     title: "Nature Platter",
@@ -159,6 +195,7 @@ const projects: Project[] = [
     repoName: "Nature-Platter",
     image: "/images/projects/nature-platter.png",
     category: "frontend",
+    rate: 3.5,
   },
   {
     title: "Biker Zone",
@@ -169,6 +206,7 @@ const projects: Project[] = [
     repoName: "Biker-Zone",
     image: "/images/projects/biker-zone.png",
     category: "frontend",
+    rate: 3.4,
   },
   {
     title: "Tea House",
@@ -179,6 +217,7 @@ const projects: Project[] = [
     repoName: "Tea-House",
     image: "/images/projects/tea-house.png",
     category: "frontend",
+    rate: 3.3,
   },
   {
     title: "Penguin Fashion",
@@ -189,6 +228,7 @@ const projects: Project[] = [
     repoName: "Penguin-Fashion-Using-Tailwind",
     image: "/images/projects/penguin-fashion.png",
     category: "frontend",
+    rate: 3.2,
   },
   {
     title: "Kids School",
@@ -199,6 +239,7 @@ const projects: Project[] = [
     repoName: "Kids-School",
     image: "/images/projects/kids-school.png",
     category: "frontend",
+    rate: 3.1,
   },
   {
     title: "Architects Horizon",
@@ -209,6 +250,7 @@ const projects: Project[] = [
     repoName: "Architects-Horizon",
     image: "/images/projects/architects-horizon.png",
     category: "frontend",
+    rate: 3.0,
   },
   {
     title: "Bangladesh 2.0",
@@ -219,6 +261,7 @@ const projects: Project[] = [
     repoName: "BANGLADESH-2.0",
     image: "/images/projects/bangladesh.png",
     category: "frontend",
+    rate: 2.9,
   },
   {
     title: "New Year Offer Portfolio",
@@ -229,6 +272,7 @@ const projects: Project[] = [
     repoName: "New-Year-Offer-Portfolio",
     image: "/images/projects/new-year-portfolio.png",
     category: "frontend",
+    rate: 2.8,
   },
   {
     title: "Spotify Clone",
@@ -239,6 +283,7 @@ const projects: Project[] = [
     repoName: "Spotify-Clone",
     image: "/images/projects/spotify-clone.png",
     category: "frontend",
+    rate: 2.7,
   },
   {
     title: "Word Cloud",
@@ -249,6 +294,7 @@ const projects: Project[] = [
     repoName: "Word-Cloud",
     image: "/images/projects/word-cloud.png",
     category: "backend",
+    rate: 4.0,
   },
   {
     title: "Daffodil Bank",
@@ -259,56 +305,45 @@ const projects: Project[] = [
     repoName: "Daffodil-Bank",
     image: "/images/projects/daffodil-bank.png",
     category: "backend",
+    rate: 4.1,
   },
 ];
 
 const Projects = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-  const [repoStats, setRepoStats] = useState<Record<string, RepoStats>>({});
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [shuffledProjects, setShuffledProjects] = useState<Project[]>(projects);
 
   const categories = [
     { id: "all", name: "All Projects", icon: FaCode },
     { id: "frontend", name: "Frontend", icon: FaLaptopCode },
     { id: "backend", name: "Backend", icon: FaServer },
     { id: "fullstack", name: "Full Stack", icon: FaDatabase },
+    { id: "automation", name: "Automation", icon: FaCogs },
     { id: "mobile", name: "Mobile", icon: FaMobile },
     { id: "other", name: "Other", icon: FaCube },
   ];
 
-  const filteredProjects =
-    selectedCategory === "all"
-      ? projects
-      : projects.filter((project) => project.category === selectedCategory);
-
+  // Shuffle projects array randomly on client side only (after hydration)
   useEffect(() => {
-    const fetchStats = async () => {
-      const stats: Record<string, RepoStats> = {};
-      for (const project of projects) {
-        try {
-          const response = await fetch(
-            `/api/github-stats?repo=${project.repoName}`
-          );
-          const data = await response.json();
-          stats[project.repoName] = data;
-        } catch (error) {
-          console.error(`Error fetching stats for ${project.repoName}:`, error);
-          stats[project.repoName] = {
-            stars: 0,
-            forks: 0,
-            watchers: 0,
-            views: 0,
-          };
-        }
-      }
-      setRepoStats(stats);
-    };
-
-    fetchStats();
+    const shuffled = [...projects].sort(() => Math.random() - 0.5);
+    setShuffledProjects(shuffled);
   }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (selectedCategory === "all") {
+      return shuffledProjects;
+    }
+    // Filter projects by exact category match
+    const filtered = shuffledProjects.filter((project) => {
+      const matches = project.category === selectedCategory;
+      return matches;
+    });
+    return filtered;
+  }, [selectedCategory, shuffledProjects]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -430,7 +465,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project.repoName}
               variants={itemVariants}
               whileHover={{
                 y: -12,
@@ -452,6 +487,7 @@ const Projects = () => {
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={project.title === "Portfolio"}
                     onError={(e: any) => {
                       e.target.src = "/images/projects/project-placeholder.png";
                     }}
@@ -478,26 +514,12 @@ const Projects = () => {
                     {project.title}
                   </motion.h3>
 
-                  {/* GitHub Stats */}
-                  <div className="flex items-center space-x-6 mb-3">
-                    <motion.div
-                      className="flex items-center space-x-2 text-[#8892B0] hover:text-[#64FFDA] transition-colors duration-300"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <FaStar className="text-yellow-400 w-5 h-5" />
-                      <span className="text-sm font-semibold">
-                        {repoStats[project.repoName]?.stars || 0}
-                      </span>
-                    </motion.div>
-                    <motion.div
-                      className="flex items-center space-x-2 text-[#8892B0] hover:text-[#64FFDA] transition-colors duration-300"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <FaCodeBranch className="text-[#64FFDA] w-5 h-5" />
-                      <span className="text-sm font-semibold">
-                        {repoStats[project.repoName]?.forks || 0}
-                      </span>
-                    </motion.div>
+                  {/* Rate Display */}
+                  <div className="flex items-center space-x-2 mb-3">
+                    <FaStar className="text-yellow-400 w-5 h-5" />
+                    <span className="text-[#8892B0] text-sm font-semibold">
+                      {project.rate?.toFixed(1) || "0.0"} / 5.0
+                    </span>
                   </div>
                 </div>
 
@@ -558,24 +580,6 @@ const Projects = () => {
                       </span>
                     </motion.a>
                   )}
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative overflow-hidden flex items-center justify-center w-16 h-16 rounded-xl bg-[#233554]/80 text-[#CCD6F6] hover:text-[#64FFDA] transition-all duration-500 hover:shadow-xl hover:shadow-[#64FFDA]/20 border-2 border-[#233554] hover:border-[#64FFDA] group backdrop-blur-sm before:absolute before:inset-0 before:bg-gradient-to-r before:from-[#64FFDA]/10 before:via-[#4CD6B9]/10 before:to-[#64FFDA]/10 before:translate-x-[-100%] hover:before:translate-x-0 before:transition before:duration-500 before:ease-out"
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: 360,
-                      transition: {
-                        duration: 0.5,
-                        ease: [0.43, 0.13, 0.23, 0.96],
-                      },
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label="View on GitHub"
-                  >
-                    <FaGithub className="w-7 h-7 relative z-10 transition-transform duration-300" />
-                  </motion.a>
                 </motion.div>
 
                 {/* Category Badge */}
@@ -660,9 +664,17 @@ const Projects = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <h3 className="text-2xl font-bold text-[#CCD6F6] mb-2">
-                    {selectedProject.title}
-                  </h3>
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-2xl font-bold text-[#CCD6F6]">
+                      {selectedProject.title}
+                    </h3>
+                    <div className="flex items-center space-x-2">
+                      <FaStar className="text-yellow-400 w-5 h-5" />
+                      <span className="text-[#64FFDA] font-semibold">
+                        {selectedProject.rate?.toFixed(1) || "0.0"} / 5.0
+                      </span>
+                    </div>
+                  </div>
                   <p className="text-[#8892B0] mb-4">
                     {selectedProject.description}
                   </p>
@@ -689,16 +701,6 @@ const Projects = () => {
                         Visit Live Site
                       </motion.a>
                     )}
-                    <motion.a
-                      href={selectedProject.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 border border-[#64FFDA] text-[#64FFDA] py-2 px-4 rounded-md font-medium text-center hover:bg-[#64FFDA]/10 transition-all duration-300"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      View Source Code
-                    </motion.a>
                   </div>
                 </motion.div>
 

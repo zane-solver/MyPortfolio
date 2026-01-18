@@ -17,8 +17,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
-  title: "Rakibul Hasan's Portfolio",
-  description: 'Computer Science Student | Programmer | Educator',
+  title: "Erik Johansson's Portfolio",
+  description: 'Full Stack AI Developer | AI Agents + Automation + SaaS + CRM Systems',
 };
 
 export default function RootLayout({

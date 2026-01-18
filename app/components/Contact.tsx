@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaTelegram } from 'react-icons/fa';
+import { SiWhatsapp } from 'react-icons/si';
 import emailjs from '@emailjs/browser';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -90,26 +91,26 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'rakibulhasanshuvo206@gmail.com',
-      href: 'mailto:rakibulhasanshuvo206@gmail.com'
-    },
-    {
-      icon: FaPhone,
-      label: 'Phone',
-      value: '+88015 21-711716',
-      href: 'tel:+8801521711716'
+      value: 'erik.johansson.1995@outlook.com',
+      href: 'mailto:erik.johansson.1995@outlook.com'
     },
     {
       icon: FaTelegram,
       label: 'Telegram',
-      value: '+880 1521-711716',
-      href: 'http://t.me/+8801521711716'
+      value: '+1 610 677 9968',
+      href: 'https://t.me/+16106779968'
+    },
+    {
+      icon: SiWhatsapp,
+      label: 'WhatsApp',
+      value: '+1 (331) 285-2911',
+      href: 'https://wa.me/13312852911'
     },
     {
       icon: FaMapMarkerAlt,
       label: 'Location',
-      value: 'Dhaka, Bangladesh',
-      href: 'https://goo.gl/maps/your-location'
+      value: 'Sweden',
+      href: 'https://goo.gl/maps/sweden'
     }
   ];
 

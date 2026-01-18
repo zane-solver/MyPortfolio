@@ -1,31 +1,8 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
-import { FaLinkedin, FaGithub, FaFacebook, FaInstagram, FaUsers } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const socialLinks = [
-  {
-    icon: FaLinkedin,
-    href: 'https://linkedin.com/in/rakibul263',
-    label: 'LinkedIn',
-  },
-  {
-    icon: FaGithub,
-    href: 'https://github.com/rakibul263',
-    label: 'GitHub',
-  },
-  {
-    icon: FaFacebook,
-    href: 'https://facebook.com/rakibul263',
-    label: 'Facebook',
-  },
-  {
-    icon: FaInstagram,
-    href: 'https://instagram.com/rakibul263',
-    label: 'Instagram',
-  },
-];
 
 const Footer = () => {
   const [visitorCount, setVisitorCount] = useState(0);
@@ -223,43 +200,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Social Links with glass effect */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex space-x-8"
-          >
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative p-3 bg-[#112240]/80 backdrop-blur-sm 
-                         rounded-full hover:bg-[#233554]/90 transition-all duration-300
-                         hover:shadow-lg hover:shadow-[#64FFDA]/10"
-                aria-label={link.label}
-                whileHover={{ y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0,
-                  transition: { delay: index * 0.1 } 
-                }}
-              >
-                <link.icon className="w-6 h-6 text-[#CCD6F6] group-hover:text-[#64FFDA] transition-colors duration-300" />
-                <motion.span
-                  className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#64FFDA] text-[#0A192F] 
-                           text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 pointer-events-none"
-                  initial={{ y: -10 }}
-                  animate={{ y: 0 }}
-                >
-                  {link.label}
-                </motion.span>
-              </motion.a>
-            ))}
-          </motion.div>
-
           {/* Copyright section */}
           <motion.div
             variants={itemVariants}
@@ -271,7 +211,7 @@ const Footer = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              © {new Date().getFullYear()} Rakibul Hasan. All rights reserved.
+              © {new Date().getFullYear()} Erik Johansson. All rights reserved.
             </motion.p>
             <motion.div
               className="text-[#64FFDA]/60 text-sm mt-2"

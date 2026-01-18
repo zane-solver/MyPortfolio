@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
-import { FaCode, FaGraduationCap, FaPuzzlePiece, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaCode, FaGraduationCap, FaPuzzlePiece, FaBrain } from 'react-icons/fa';
 
 const About = () => {
   const containerRef = useRef(null);
@@ -94,23 +94,23 @@ const About = () => {
 
   const quickFacts = [
     {
-      icon: FaGraduationCap,
-      text: "Computer Science Student at Daffodil International University",
+      icon: FaCode,
+      text: "7+ Years of Full Stack AI Development Experience",
       color: "#64FFDA"
     },
     {
-      icon: FaCode,
-      text: "Passionate about Web Development",
+      icon: FaBrain,
+      text: "AI Agent Development & Automation Systems",
       color: "#63B3ED"
     },
     {
       icon: FaPuzzlePiece,
-      text: "Love to solve programming problems",
+      text: "CRM Automation & Workflow Orchestration",
       color: "#F687B3"
     },
     {
-      icon: FaChalkboardTeacher,
-      text: "Enjoy teaching and sharing knowledge",
+      icon: FaGraduationCap,
+      text: "Scalable AI & Automation Solutions for Enterprise",
       color: "#68D391"
     }
   ];
@@ -163,17 +163,16 @@ const About = () => {
               className="text-[#8892B0] text-xl leading-relaxed prose prose-invert hover:text-[#CCD6F6] transition-colors duration-300"
               variants={itemVariants}
             >
-              Hello! I'm <span className="text-[#64FFDA] font-semibold">Rakibul Hasan</span>, a passionate Computer Science student with a deep love for programming and technology. 
-              My journey in the world of coding began with a simple "Hello World" program, and since then, 
-              I've been on an exciting adventure of learning and creating.
+              Hello! I'm <span className="text-[#64FFDA] font-semibold">Erik Johansson</span>, a Full Stack AI Developer with 7+ years of experience designing automation systems, AI platforms, chatbots, and full-stack applications. 
+              I work across startups, SMEs, and enterprise environments, helping organizations launch reliable, efficient, and production-ready AI & automation solutions.
             </motion.p>
 
             <motion.p 
               className="text-[#8892B0] text-xl leading-relaxed prose prose-invert hover:text-[#CCD6F6] transition-colors duration-300"
               variants={itemVariants}
             >
-              I specialize in web development and have experience with various programming languages and frameworks. 
-              My goal is to create elegant, efficient solutions that make a positive impact on people's lives.
+              I specialize in AI agent development, AI-driven mobile & web apps, CRM automation, and end-to-end workflow orchestration using tools like OpenAI, Zapier, n8n, Make.com, Zoho, HubSpot, and custom API pipelines. 
+              With a strong engineering background and hands-on experience delivering scalable automation ecosystems, I help organizations transform their operations through intelligent automation.
             </motion.p>
 
             <motion.div 
@@ -246,7 +245,7 @@ const About = () => {
               
               <Image
                 src="/profile.png"
-                alt="Rakibul Hasan"
+                alt="Erik Johansson"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"

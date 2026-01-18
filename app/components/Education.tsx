@@ -4,32 +4,25 @@ import { FaGraduationCap } from 'react-icons/fa';
 
 const education = [
   {
-    degree: "Bachelor's in CSE",
-    institution: 'Daffodil International University',
-    duration: '2023-2026',
-    details: 'Currently pursuing Computer Science and Engineering degree with focus on software development and programming.',
+    degree: "Master's in Computer Science",
+    institution: 'KTH Royal Institute of Technology',
+    duration: '2015-2017',
+    details: 'Master of Science in Computer Science with specialization in AI and Machine Learning. Completed research projects in automation systems and AI agents.',
     type: 'University',
   },
   {
-    degree: 'HSC in Science',
-    institution: 'Cantonment Public School and College, Rangpur',
-    duration: '2020-2022',
-    details: 'Completed Higher Secondary Certificate with GPA 5.0, focusing on science subjects.',
-    type: 'College',
+    degree: "Bachelor's in Computer Science",
+    institution: 'Stockholm University',
+    duration: '2011-2014',
+    details: 'Bachelor of Science in Computer Science. Focused on software engineering, algorithms, and distributed systems.',
+    type: 'University',
   },
   {
-    degree: 'SSC in Science',
-    institution: 'Komarpur Chowmatha High School, Gaibandha',
-    duration: '2018-2019',
-    details: 'Completed Secondary School Certificate with GPA 5.00 in Science group.',
-    type: 'School',
-  },
-  {
-    degree: 'JSC',
-    institution: 'Komarpur Chowmatha High School, Gaibandha',
-    duration: '2017',
-    details: 'Completed Junior School Certificate with GPA 5.00.',
-    type: 'School',
+    degree: 'Natural Science Programme',
+    institution: 'Stockholms Gymnasium',
+    duration: '2008-2011',
+    details: 'Completed Natural Science Programme (Naturvetenskapsprogrammet) with specialization in Mathematics and Physics.',
+    type: 'Gymnasium',
   },
 ];
 

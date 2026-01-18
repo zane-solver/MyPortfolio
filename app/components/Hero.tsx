@@ -1,32 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Hero = () => {
-  const socialLinks = [
-    {
-      icon: FaLinkedin,
-      href: 'https://linkedin.com/in/rakibul263',
-      label: 'LinkedIn'
-    },
-    {
-      icon: FaGithub,
-      href: 'https://github.com/rakibul263',
-      label: 'GitHub'
-    },
-    {
-      icon: FaFacebook,
-      href: 'https://facebook.com/rakibul263',
-      label: 'Facebook'
-    },
-    {
-      icon: FaInstagram,
-      href: 'https://instagram.com/rakibul263',
-      label: 'Instagram'
-    }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -77,7 +54,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             <span className="inline-block hover:text-[#64FFDA] transition-all duration-500 cursor-pointer transform hover:translate-x-2">
-              Rakibul Hasan
+              Erik Johansson
             </span>
           </motion.h2>
           
@@ -85,40 +62,15 @@ const Hero = () => {
             className="text-[#8892B0] font-poppins font-bold text-3xl sm:text-4xl md:text-5xl mb-8 leading-relaxed"
             variants={itemVariants}
           >
-            <span className="gradient-text">CSE Student | Problem Solver | Full-Stack Developer</span>
+            <span className="gradient-text">Full Stack AI Developer | AI Agents + Automation + SaaS + CRM Systems</span>
           </motion.h3>
           
           <motion.p 
             className="text-[#8892B0] text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-light"
             variants={itemVariants}
           >
-            A passionate Computer Science student with expertise in programming, web development, and teaching. 
-            I craft elegant solutions and inspire others through innovative technology.
+            Full Stack AI Developer with 7+ years of experience designing automation systems, AI platforms, chatbots, and full-stack applications across startups, SMEs, and enterprise environments. I specialize in AI agent development, AI-driven mobile & web apps, CRM automation, and end-to-end workflow orchestration.
           </motion.p>
-
-          {/* Social Links */}
-          <motion.div 
-            className="flex space-x-6 mb-12"
-            variants={itemVariants}
-          >
-            {socialLinks.map((link) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#CCD6F6] hover:text-[#64FFDA] transition-all duration-300 transform hover:scale-110 relative group"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={link.label}
-              >
-                <link.icon className="w-6 h-6" />
-                <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm text-[#64FFDA]">
-                  {link.label}
-                </span>
-              </motion.a>
-            ))}
-          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div 
