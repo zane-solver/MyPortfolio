@@ -123,7 +123,7 @@ const Navbar = () => {
               </motion.div>
             ))}
             <motion.a
-              href="https://drive.google.com/uc?export=download&id=1thgJA78AlqPI5IOBLHoSzClFP5Kr1g31"
+              href="https://drive.google.com/file/d/1kl-I-BMt_WQ3oVrFQtVANuWYyh2UrNwz/view?usp=sharing"
               download="Eric_Johansson_Resume.pdf"
               className="relative overflow-hidden group px-6 py-3 rounded-md bg-gradient-to-r from-[#64FFDA] to-[#4CD6B9] text-[#0A192F] font-bold transition-all duration-500 ml-4 transform hover:scale-105 hover:shadow-xl hover:shadow-[#64FFDA]/20"
               target="_blank"
