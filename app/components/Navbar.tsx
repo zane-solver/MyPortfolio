@@ -187,7 +187,7 @@ const Navbar = () => {
                   </motion.div>
                 ))}
                 <motion.a
-                  href="https://drive.google.com/uc?export=download&id=1thgJA78AlqPI5IOBLHoSzClFP5Kr1g31"
+                  href="https://drive.google.com/file/d/1kl-I-BMt_WQ3oVrFQtVANuWYyh2UrNwz/view?usp=sharing"
                   download="Eric_Johnshon_Resume.pdf"
                   className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#64FFDA] to-[#4CD6B9] text-[#0A192F] font-bold px-6 py-3 rounded-md transition-all duration-500 mt-2 transform hover:scale-105 hover:shadow-xl hover:shadow-[#64FFDA]/20 relative overflow-hidden group"
                   target="_blank"
