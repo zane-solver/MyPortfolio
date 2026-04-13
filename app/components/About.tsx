@@ -163,7 +163,7 @@ const About = () => {
               className="text-[#8892B0] text-xl leading-relaxed prose prose-invert hover:text-[#CCD6F6] transition-colors duration-300"
               variants={itemVariants}
             >
-              Hello! I'm <span className="text-[#64FFDA] font-semibold">Erik Johansson</span>, a Full Stack AI Developer with 7+ years of experience designing automation systems, AI platforms, chatbots, and full-stack applications. 
+              Hello! I'm <span className="text-[#64FFDA] font-semibold">Eric Johnshon</span>, a Full Stack AI Developer with 7+ years of experience designing automation systems, AI platforms, chatbots, and full-stack applications. 
               I work across startups, SMEs, and enterprise environments, helping organizations launch reliable, efficient, and production-ready AI & automation solutions.
             </motion.p>
 
@@ -245,7 +245,7 @@ const About = () => {
               
               <Image
                 src="/profile.png"
-                alt="Erik Johansson"
+                alt="Eric Johnshon"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
