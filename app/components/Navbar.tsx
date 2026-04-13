@@ -87,7 +87,7 @@ const Navbar = () => {
           >
             <Link href="/" className="font-poppins font-bold text-2xl relative group flex items-center">
               <span className="relative z-10 flex items-center">
-                <span className="text-[#64FFDA]">Erik</span>
+                <span className="text-[#64FFDA]">Eric</span>
                 <motion.div
                   className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#64FFDA] to-[#CCD6F6] origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                   initial={false}
@@ -124,7 +124,7 @@ const Navbar = () => {
             ))}
             <motion.a
               href="https://drive.google.com/uc?export=download&id=1thgJA78AlqPI5IOBLHoSzClFP5Kr1g31"
-              download="Erik_Johansson_Resume.pdf"
+              download="Eric_Johansson_Resume.pdf"
               className="relative overflow-hidden group px-6 py-3 rounded-md bg-gradient-to-r from-[#64FFDA] to-[#4CD6B9] text-[#0A192F] font-bold transition-all duration-500 ml-4 transform hover:scale-105 hover:shadow-xl hover:shadow-[#64FFDA]/20"
               target="_blank"
               rel="noopener noreferrer"
@@ -188,7 +188,7 @@ const Navbar = () => {
                 ))}
                 <motion.a
                   href="https://drive.google.com/uc?export=download&id=1thgJA78AlqPI5IOBLHoSzClFP5Kr1g31"
-                  download="Erik_Johansson_Resume.pdf"
+                  download="Eric_Johnshon_Resume.pdf"
                   className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#64FFDA] to-[#4CD6B9] text-[#0A192F] font-bold px-6 py-3 rounded-md transition-all duration-500 mt-2 transform hover:scale-105 hover:shadow-xl hover:shadow-[#64FFDA]/20 relative overflow-hidden group"
                   target="_blank"
                   rel="noopener noreferrer"
