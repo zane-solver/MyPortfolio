@@ -91,8 +91,8 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: 'Email',
-      value: 'erik.johansson.1995@outlook.com',
-      href: 'mailto:erik.johansson.1995@outlook.com'
+      value: 'eric.johnshon.1994@gmail.com',
+      href: 'mailto:eric.johnshon.1994@gmail.com'
     },
     {
       icon: FaTelegram,
