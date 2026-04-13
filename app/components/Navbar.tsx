@@ -87,7 +87,7 @@ const Navbar = () => {
           >
             <Link href="/" className="font-poppins font-bold text-2xl relative group flex items-center">
               <span className="relative z-10 flex items-center">
-                <span className="text-[#64FFDA]">Eric</span>
+                <span className="text-[#64FFDA]">Eric Johnshon</span>
                 <motion.div
                   className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#64FFDA] to-[#CCD6F6] origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
                   initial={false}
