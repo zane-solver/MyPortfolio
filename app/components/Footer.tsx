@@ -211,7 +211,7 @@ const Footer = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              © {new Date().getFullYear()} Erik Johansson. All rights reserved.
+              © {new Date().getFullYear()} Eric Johansson. All rights reserved.
             </motion.p>
             <motion.div
               className="text-[#64FFDA]/60 text-sm mt-2"
