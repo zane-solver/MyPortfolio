@@ -54,7 +54,7 @@ const Hero = () => {
             variants={itemVariants}
           >
             <span className="inline-block hover:text-[#64FFDA] transition-all duration-500 cursor-pointer transform hover:translate-x-2">
-              Erik Johansson
+              Eric Johnshon
             </span>
           </motion.h2>
           
